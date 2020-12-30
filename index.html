@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betkanyon VIP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="bk-form-wrapper">
+        <div class="bk-card-container">
+            <div class="vip-logo">
+                <img src="./images/vip.png" alt="">
+            </div>
+            <div class="betkanyon-logo">
+                <img src="./images/betkanyon.png" alt="">
+            </div>
+            <form  action="/" method="POST" class="user-inputs">
+                <!-- username -->
+                <label class="label-username " for="username">Kullanıcı Adı</label>
+                <input class="bk-username" type="text" name="bk-username"
+                    placeholder="Kullanıcı adı/E-mail/Cep numarası" required='true'>
+                <!-- password -->
+                <label class="label-password" for="password">Şifre</label>
+                <input class="bk-password" required='true' type="password" name="bk-password" placeholder="Şifre">
+                <!-- if username or password wrong show this error. -->
+                <!-- You can use for backend post also  -->
+                <div class="bk-alert-messages
+                bk-user-false ">
+                    <img src="./images/cross.png" alt="">
+                    <!-- login parameters are wrong! -->
+                    Kullanıcı bilgileriniz yanlış! </div>
+                <button class="bk-button" type="submit">ÜYE GİRİŞİ</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        //Declare
+        const username = document.querySelector('.bk-username');
+        const password = document.querySelector('.bk-username');
+        const submit = document.querySelector('.bk-button');
+        const bkAlertMessage = document.querySelector('.bk-alert-messages')
+
+        //Check, if username or password wrong show this error.
+        submit.onclick = () => {
+            //Call validate function
+            checkValidate()
+        };
+
+        
+        username.onchange = () => {
+            displayMessage('none')
+        }
+//  <!-- if username or password wrong show this error. -->
+        //         <!-- You can use for backend post also  -->
+        const checkValidate = () => {
+            //if username or password wrong 
+            // username.value != res.json.username
+            if ('') {
+                displayMessage('flex')
+
+            } else {
+                displayMessage('none')
+            }
+        };
+
+        //Function to hide and show alert message. 
+        //flex = true , none = false
+        const displayMessage = (param) => {
+            bkAlertMessage.style.display = param;
+        };
+    </script>
+
+</body>
+
+</html>
